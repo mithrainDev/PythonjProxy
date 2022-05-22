@@ -15,8 +15,8 @@ class Forward:
         try:
             self.forward.connect((host, port))
             return self.forward
-        except Exception, e:
-            print e
+        except(Exception, e):
+            print(e)
             return False
 
 class TheServer:
@@ -51,7 +51,7 @@ class TheServer:
         forward = Forward().start(forward_to[0], forward_to[1])
         clientsock, clientaddr = self.server.accept()
         if forward:
-            print clientaddr, "has connected"
+            print(clientaddr, "has connected")
             self.input_list.append(clientsock)
             self.input_list.append(forward)
             self.channel[clientsock] = forward
